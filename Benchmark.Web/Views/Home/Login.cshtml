@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="homeDiv">
+    <div class="col-md-4 col-md-offset-4" style="background-color: transparent" data-bind="style:{height: loginHeightProperty, marginTop:  loginMarginTopProperty}">
+        <div style="text-align: center; margin-top: 0px">
+            <img src="~/Content/Images/Login Logo.png" style="height: 200px" />
+        </div>
+        <div>
+            <hr class="horizontal-rule-upper" />
+        </div>
+        <div align="center">
+            <label style="font-family: isiniScript medium; font-size: 80px; color: #262261; ">Benchmark</label>
+        </div>
+        <div>
+            <hr class="horizontal-rule-lower" />
+        </div>
+
+        <div style="margin-top: 20px;" class="col-md-12">
+            <input id="userName" type="text" class="form-control" placeholder="Username" style=" height: 50px; font-size: 18px; max-width: 100%" aria-describedby="basic-addon1" data-bind="value: username" autofocus="true">
+            <br />
+            <input id="password" type="password" class="form-control" placeholder="Password" style=" height: 50px; font-size: 18px; max-width: 100%" aria-describedby="basic-addon1" data-bind="value: password">
+            <br />
+            <div>
+                <hr class="horizontal-rule-devider" />
+            </div>
+            <div>
+                <button id="loginButton" class="btn btn-benchmark pull-right" style="width: 120px" data-bind="click: loginAccount">Login</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+    .btn-benchmark {
+        background-color: #262261;
+        color: white;
+    }
+
+        .btn-benchmark:hover {
+            color: white;
+            background-color: #1d1d51;
+        }
+
+        .btn-benchmark:focus {
+            color: white;
+            background-color: #1d1d51;
+        }
+
+        .btn-benchmark:visited {
+            color: white;
+            background-color: #1d1d51;
+        }
+
+    .horizontal-rule-upper {
+        margin-top: 40px;
+        color: #262261;
+        background-color: #262261;
+        height: 2px;
+    }
+
+    .horizontal-rule-lower {
+        margin-top: -10px;
+        color: #262261;
+        background-color: #262261;
+        height: 2px;
+    }
+
+    .horizontal-rule-devider {
+        margin-top: 10px;
+        color: #262261;
+        background-color: #262261;
+        height: 2px;
+    }
+</style>
+
+
+@section scripts {
+    <script>
+        var HomeViewModel = function () {
+            var self = this;
+
+            self.windowBufferSize = 0;
+
+            self.windowHeight = ko.observable();
+
+            self.loginHeightProperty = ko.computed(function () {
+                return self.loginHeight + "400px";
+            });
+            self.loginMarginTopProperty = ko.computed(function () {
+                return "0px";
+            });
+
+
+            self.username = ko.observable();
+            self.password = ko.observable();
+            self.loginAccount = function () {
+                var loginViewModel = new LoginViewModel(self.username(), self.password());
+                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function (response) {
+                    busyViewModel.hide();
+                    if (!response.isOk) {
+                        //TO DO -- maak die loginViewModel oop om errors te hanteer.
+                        //                        loginViewModel.resultModalViewModel.ResultHeader("Daar was 'n probleem met jou versoek:");
+                        //                        loginViewModel.resultModalViewModel.ResultMessage(response.Message);
+                        //                        loginViewModel.resultModalViewModel.ResultType("modal-body alert alert-danger");
+                        //                        $("#resultModal").modal();
+                        //                        return;
+                    }
+
+                    changeLocation(response.startPage, true);
+                });
+            }
+
+
+            window.onload = function () {
+                self.windowHeight($(window).height() - self.windowBufferSize);
+            };
+
+            window.onresize = function () {
+                self.windowHeight($(window).height() - self.windowBufferSize);
+            };
+        }
+
+        var LoginViewModel = function (username, password) {
+            var self = this;
+            self.Username = ko.observable(username);
+            self.Password = ko.observable(password);
+        }
+
+        $(document).ready(function () {
+            busyViewModel.hide();
+        });
+
+        $("#password").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#loginButton").click();
+            }
+        });
+
+        var homeViewModel = new HomeViewModel();
+        ko.applyBindings(homeViewModel, document.getElementById('homeDiv'));
+
+    </script>
+}
+
+

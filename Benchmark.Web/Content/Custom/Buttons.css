@@ -1,0 +1,96 @@
+﻿.btn-success-send {
+  color: #50B748;
+  background-color: transparent;
+  border-color: transparent;
+    font-size: 25px;
+    font-weight: bold;
+}
+.btn-success-send:hover,
+.btn-success-send:focus,
+.btn-success-send.focus,
+.btn-success-send:active,
+.btn-success-send.active,
+.open > .dropdown-toggle.btn-success-send {
+  color: #50B748;
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-success-send:active,
+.btn-success-send.active,
+.open > .dropdown-toggle.btn-success-send {
+  background-image: none;
+}
+.btn-success-send.disabled,
+.btn-success-send[disabled],
+fieldset[disabled] .btn-success-send,
+.btn-success-send.disabled:hover,
+.btn-success-send[disabled]:hover,
+fieldset[disabled] .btn-success-send:hover,
+.btn-success-send.disabled:focus,
+.btn-success-send[disabled]:focus,
+fieldset[disabled] .btn-success-send:focus,
+.btn-success-send.disabled.focus,
+.btn-success-send[disabled].focus,
+fieldset[disabled] .btn-success-send.focus,
+.btn-success-send.disabled:active,
+.btn-success-send[disabled]:active,
+fieldset[disabled] .btn-success-send:active,
+.btn-success-send.disabled.active,
+.btn-success-send[disabled].active,
+fieldset[disabled] .btn-success-send.active {
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-success-send .badge {
+  color: transparent;
+  background-color: #50B748;
+}
+
+/*Connect*/
+.btn-success-connect {
+  color: #fff;
+  background-color: #50B748;
+  border-color: #50B748;
+    font-size: 20px;
+    width: 100%
+}
+.btn-success-connect:hover,
+.btn-success-connect:focus,
+.btn-success-connect.focus,
+.btn-success-connect:active,
+.btn-success-connect.active,
+.open > .dropdown-toggle.btn-success-connect {
+  color: #fff;
+  background-color: #50B748;
+  border-color: #50B748;
+}
+.btn-success-connect:active,
+.btn-success-connect.active,
+.open > .dropdown-toggle.btn-success-connect {
+  background-image: none;
+}
+.btn-success-connect.disabled,
+.btn-success-connect[disabled],
+fieldset[disabled] .btn-success-connect,
+.btn-success-connect.disabled:hover,
+.btn-success-connect[disabled]:hover,
+fieldset[disabled] .btn-success-connect:hover,
+.btn-success-connect.disabled:focus,
+.btn-success-connect[disabled]:focus,
+fieldset[disabled] .btn-success-connect:focus,
+.btn-success-connect.disabled.focus,
+.btn-success-connect[disabled].focus,
+fieldset[disabled] .btn-success-connect.focus,
+.btn-success-connect.disabled:active,
+.btn-success-connect[disabled]:active,
+fieldset[disabled] .btn-success-connect:active,
+.btn-success-connect.disabled.active,
+.btn-success-connect[disabled].active,
+fieldset[disabled] .btn-success-connect.active {
+  background-color: #50B748;
+  border-color: #50B748;
+}
+.btn-success-connect .badge {
+  color: transparent;
+  background-color: #50B748;
+}

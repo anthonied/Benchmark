@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FrameworkOne.ThirdPartyServices</id>
+    <version>2.0.92.0</version>
+    <title>FrameworkOne ThirdPartyServices</title>
+    <authors>Framework One</authors>
+    <owners>Framework One</owners>
+    <projectUrl>http://www.frameworkone.co.za/</projectUrl>
+    <iconUrl>http://www.frameworkone.co.za/resources/cloudcore.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Re-usable Framework One client tools for services such as Clickatell and PostageApp.</description>
+    <copyright>2014</copyright>
+    <language>en-ZA</language>
+  </metadata>
+</package>

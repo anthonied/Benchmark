@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>WhatsAppAPI</id>
+    <version>15.4.29</version>
+    <title>Whatsapp API for .NET</title>
+    <authors>Unknown</authors>
+    <owners>Unknown</owners>
+    <projectUrl>https://github.com/andregsilv/WhatsAPINet</projectUrl>
+    <iconUrl>http://lh6.ggpht.com/mp86vbELnqLi2FzvhiKdPX31_oiTRLNyeK8x4IIrbF5eD1D5RdnVwjQP0hwMNR_JdA</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a API written in C# but it can be used in any .NET language. It's a fork from WhatsAPINet, which is based on WhatsAPI. The goal of this fork is to make it all work again and refacter the code, add documentation and write documentation on how Whatsapp works.</description>
+    <summary>WhatsApp API for .NET</summary>
+    <releaseNotes>Fixes the bug of "not-authorized" login.</releaseNotes>
+    <tags>whatsapp api messaging</tags>
+  </metadata>
+</package>

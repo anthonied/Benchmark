@@ -1,0 +1,73 @@
+﻿@model dynamic
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Benchmark</title>
+    <link rel="icon" type="image/png" href="~/Content/Images/Untitled-1.png" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render(BundleLayoutConfig.CssJQueryUI)
+    @Styles.Render(BundleLayoutConfig.CssBaseForBootstrap)
+    @Styles.Render(BundleLayoutConfig.CssExternal)
+    @Styles.Render(BundleLayoutConfig.CssCustom)
+
+    @Scripts.Render(BundleLayoutConfig.JsJQuery)
+    @Scripts.Render(BundleLayoutConfig.JsExternal)
+    @Scripts.Render(BundleLayoutConfig.JsCustomForApp)
+
+
+    @Html.Partial("_html5shiv")
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({ changeYear: true, changeMonth: true, yearRange: "-100:+0", dateFormat: "dd/mm/yy" });
+        });
+    </script>
+    
+</head>
+<body id="" style="padding-top: 20px">
+    @Html.Partial("_busyIndicator")
+    
+    <div id="navbarDiv" class="col-md-12 " style=" height: 70px" data-bind="visible: isLoggedIn" >
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-1">
+                <img style="width: 80px; height: 80px" src="~/Content/Images/Login Logo.png" />
+            </div>
+            <div class="col-md-1">
+                <h1 style="color: #262261; font-family: 'isiniScript medium'; font-size: 55px; margin-left: 20px; margin-top: 20px ">Benchmark</h1>
+            </div>
+            <div class="col-md-10" style="text-align: right; margin-top: 30px ">
+                <ul class="nav-list" data-bind="foreach: navbar">
+                    <li class="download"><a data-bind="attr:{ href: HRef },text: Text"></a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="horizontal-rule col-md-12" style="margin-top: -30px" />
+    </div>
+    
+    
+    <div id="body">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="bodyDiv" class="">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var rootUrl = "@Href("~/")";
+        var model = @Html.Raw(Json.Encode(Model));
+    </script>
+         @RenderSection("Scripts", required: false)
+    @Scripts.Render(BundleLayoutConfig.JsSharedLayout)
+    <script>
+        var layoutModel = new LayoutViewModel();
+        ko.applyBindings(layoutModel, document.getElementById("navbarDiv"));
+    </script>
+       
+</body>
+</html>

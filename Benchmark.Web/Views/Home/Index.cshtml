@@ -1,0 +1,56 @@
+﻿@model dynamic
+
+<div id="Index">
+    <div style="height: 300px; margin-top: 200px;background-color: #262261">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <img src="../../Content/Images/Benchmark Landing Page Logo.png" style="height:200px; margin-top: 55px; margin-left: 40px" />
+            </div>
+            <div class="col-md-6">
+                <label style="font-family: isiniScript medium; font-size: 150px; color:white; margin-left: 70px;margin-top: 35px">Benchmark</label>
+                <div>
+                    <a class="pull-left" style="color: white; cursor: pointer; font-size:22px; margin-top: -10px; margin-left: 220px">Register</a>
+                    
+                </div>
+                <div class="verticalLine" style="margin-top: -10px; margin-left: 330px"></div>
+                <a class="pull-left" style="color: white; cursor: pointer; font-size:22px; margin-top: -24px; margin-left: 50px" data-bind="click:goToLoginScreen">Sign in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .verticalLine {
+        border-left: 2px solid white;
+        height: 25px;
+    }
+</style>
+
+
+@section scripts {
+    <script>
+
+        var x = $(window).width();
+        console.log(x)
+
+        var IndexViewModel = function () {
+            var self = this;
+
+            self.goToLoginScreen = function () {
+                changeLocation("Home/Login", true);
+            }
+        }
+
+        ko.applyBindings(new IndexViewModel(), document.getElementById("Index"));
+
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            busyViewModel.hide();
+        });
+    </script>;
+}

@@ -1,0 +1,10 @@
+﻿
+@font-face {
+font-family: 'roboto regular';
+src: url('/fonts/Roboto-Regular.ttf') format("truetype");
+}
+
+@font-face {
+font-family: 'isiniScript medium';
+src: url('/fonts/IsiniScript.ttf') format("truetype");
+}
