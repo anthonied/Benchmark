@@ -16,7 +16,7 @@
                             <form>
                                 <p><label>Email</label><input type="text" /></p>
                                 <p><label>Password</label><input type="password" /></p>
-                                <p><button data-bind="click:loginAccount">Login</button></p>
+                                <button data-bind="click:logsies">Login</button>
                             </form>
                         </div>
                     </div>
@@ -166,66 +166,76 @@
 @section scripts {
     <script>
 
-        var x = $(window).width();
-        console.log(x)
 
-        var IndexViewModel = function () {
+//        var IndexViewModel = function () {
+//            var self = this;
+//
+//            self.goToLoginScreen = function () {
+//                changeLocation("Home/Login", true);
+//            }
+//        }
+
+
+////
+
+        var HomeViewModel = function() {
             var self = this;
+            self.username = ko.observable();
+            self.password = ko.observable();
 
-            self.goToLoginScreen = function () {
-                changeLocation("Home/Login", true);
+
+            self.loginAccount = function() {
+                var loginViewModel = new LoginViewModel(self.username(), self.password());
+                //changeLocation("Home/Login", true);
+                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
+                    busyViewModel.hide();
+                    if (!response.isOk) {
+                    }
+
+                    changeLocation(response.startPage, true);
+                });
+            }
+
+            self.logsies = function() {
+                var loginViewModel = new LoginViewModel(self.username(), self.password());
+                //changeLocation("Home/Login", true);
+                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
+                    busyViewModel.hide();
+                    if (!response.isOk) {
+                    }
+
+                    changeLocation(response.startPage, true);
+                });
             }
         }
 
-
-
-        ////
-
-        self.username = ko.observable();
-        self.password = ko.observable();
-        self.loginAccount = function () {
-            var loginViewModel = new LoginViewModel(self.username(), self.password());
-            sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function (response) {
-                busyViewModel.hide();
-                if (!response.isOk) {
-                    //TO DO -- maak die loginViewModel oop om errors te hanteer.
-                    //                        loginViewModel.resultModalViewModel.ResultHeader("Daar was 'n probleem met jou versoek:");
-                    //                        loginViewModel.resultModalViewModel.ResultMessage(response.Message);
-                    //                        loginViewModel.resultModalViewModel.ResultType("modal-body alert alert-danger");
-                    //                        $("#resultModal").modal();
-                    //                        return;
-                }
-
-                changeLocation(response.startPage, true);
-            });
-        }
-
-        var LoginViewModel = function (username, password) {
+        var LoginViewModel = function(username, password) {
             var self = this;
             self.Username = ko.observable(username);
+            console.log(self.Username())
             self.Password = ko.observable(password);
+            console.log(self.Password())
         }
 
-        $("#password").keyup(function (event) {
+        $(document).ready(function() {
+            busyViewModel.hide();
+        });
+
+        $("#password").keyup(function(event) {
             if (event.keyCode == 13) {
                 $("#loginButton").click();
             }
         });
 
-
-        ////
-
-
-
-
-        ko.applyBindings(new LoginViewModel(), document.getElementById("Index"));
+        var homeViewModel = new HomeViewModel();
+        ko.applyBindings(homeViewModel, document.getElementById("Index"));
 
 
     </script>
 
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             busyViewModel.hide();
         });
     </script>;
