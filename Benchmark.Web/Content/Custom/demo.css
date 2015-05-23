@@ -46,7 +46,7 @@ a, button {
 }
 
 a:hover, a:focus {
-	color: #e75854;
+	color: #262261;
 }
 
 .codrops-header {
@@ -78,7 +78,7 @@ a:hover, a:focus {
 }
 
 .codrops-demos a.current-demo {
-	color: #e75854;
+	color: #262261;
 }
 
 /* Top Navigation Style */
