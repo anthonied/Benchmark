@@ -16,7 +16,7 @@
                             <form>
                                 <p><label>Email</label><input type="text" /></p>
                                 <p><label>Password</label><input type="password" /></p>
-                                <button data-bind="click:logsies">Login</button>
+                                <button data-bind="click:$parent.logsies">Login</button>
                             </form>
                         </div>
                     </div>
@@ -184,37 +184,37 @@
             self.password = ko.observable();
 
 
-            self.loginAccount = function() {
-                var loginViewModel = new LoginViewModel(self.username(), self.password());
-                //changeLocation("Home/Login", true);
-                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
-                    busyViewModel.hide();
-                    if (!response.isOk) {
-                    }
+//            self.logsies = function() {
+//                var loginViewModel = new LoginViewModel(self.username(), self.password());
+//                //changeLocation("Home/Login", true);
+//                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
+//                    busyViewModel.hide();
+//                    if (!response.isOk) {
+//                    }
+//
+//                    changeLocation(response.startPage, true);
+//                });
+//            }
+        }
 
-                    changeLocation(response.startPage, true);
-                });
-            }
-
-            self.logsies = function() {
-                var loginViewModel = new LoginViewModel(self.username(), self.password());
-                //changeLocation("Home/Login", true);
-                sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
-                    busyViewModel.hide();
-                    if (!response.isOk) {
-                    }
-
-                    changeLocation(response.startPage, true);
-                });
-            }
+        var logsies = function (){
+                        self.logsies = function() {
+                            var loginViewModel = new LoginViewModel(self.username(), self.password());
+                            //changeLocation("Home/Login", true);
+                            sendViewModelToController("Home/LoginAccount", ko.toJSON(loginViewModel), function(response) {
+                                busyViewModel.hide();
+                                if (!response.isOk) {
+                                }
+            
+                                changeLocation(response.startPage, true);
+                            });
+                        }
         }
 
         var LoginViewModel = function(username, password) {
             var self = this;
             self.Username = ko.observable(username);
-            console.log(self.Username())
             self.Password = ko.observable(password);
-            console.log(self.Password())
         }
 
         $(document).ready(function() {
