@@ -8,3 +8,18 @@ src: url('/fonts/Roboto-Regular.ttf') format("truetype");
 font-family: 'isiniScript medium';
 src: url('/fonts/IsiniScript.ttf') format("truetype");
 }
+
+@font-face {
+font-family: 's medium';
+src: url('/fonts/BLOKKRegular.ttf') format("truetype");
+}
+
+@font-face {
+font-family: 'a medium';
+src: url('/fonts/codropsicons.ttf') format("truetype");
+}
+
+@font-face {
+font-family: 'asd medium';
+src: url('/fonts/icomoon.ttf') format("truetype");
+}
