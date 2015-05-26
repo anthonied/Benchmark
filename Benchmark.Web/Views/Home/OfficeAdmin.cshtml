@@ -3,49 +3,51 @@
 @{
     ViewBag.Title = "Admin Home";
 }
-<header class="container-fluid" style="height: 200px; width: 100%; background-color: #262261; margin-top: 50px">
-    <h1 class=" col-md-3 col-md-offset-4" style="color: white;">Jou mismaaksel</h1>
-</header>
+<div id="OfficeAdmin">
+    <header class="container-fluid" style="height: 200px; width: 100%; background-color: #262261; margin-top: 50px">
+        <h1 class=" col-md-3 col-md-offset-4" style="color: white;">Jou mismaaksel</h1>
+    </header>
 
-<div class="col-md-12" style="margin-top: 50px">
-    <aside class="col-md-2"></aside>
+    <div class="col-md-12" style="margin-top: 50px">
+        <aside class="col-md-2"></aside>
 
-    <section class="col-md-9" style="margin-top: 20px">
-        <div class="col-md-3 hvr-float-shadow dashboardItem">
-            <div>
-                <h2 data-value="98">12</h2>
-                <h4>Whatsapp Messages</h4>
+        <section class="col-md-9" style="margin-top: 20px">
+            <div class="col-md-3 hvr-float-shadow dashboardItem" data-bind="click:goToDevelopers">
+                <div>
+                    <h2 data-value="98">12</h2>
+                    <h4>Developers</h4>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
-            <div>
-                <h2 data-value="98">43</h2>
-                <h4>Emails</h4>
+            <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
+                <div>
+                    <h2 data-value="98">43</h2>
+                    <h4>Emails</h4>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
-            <div>
-                <h2 data-value="98">28</h2>
-                <h4>Messages</h4>
+            <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
+                <div>
+                    <h2 data-value="98">28</h2>
+                    <h4>Messages</h4>
+                </div>
             </div>
+        </section>
+    </div>
+
+    <header class="container-fluid" style="height: 200px; width: 100%; background-color: #423d44; margin-top: 800px">
+        <div class="col-md-offset-1 col-md-1" style="margin-top: 30px">
+            <span class="row" style="color: white; cursor: pointer">Whatsapp</span>
+            <span class="row" style="color: white; cursor: pointer">Messages</span>
+            <span class="row" style="color: white; cursor: pointer">Emails</span>
         </div>
-    </section>
+        <div class="col-md-offset-1 col-md-1" style="margin-top: 30px">
+            <span class="row" style="color: white; cursor: pointer">Whatsapp</span>
+            <span class="row" style="color: white; cursor: pointer">Messages</span>
+            <span class="row" style="color: white; cursor: pointer">Emails</span>
+        </div>
+    </header>
 </div>
-
-<header class="container-fluid" style="height: 200px; width: 100%; background-color: #423d44; margin-top: 800px">
-    <div class="col-md-offset-1 col-md-1" style="margin-top: 30px">
-        <span class="row" style="color: white; cursor: pointer">Whatsapp</span>
-        <span class="row" style="color: white; cursor: pointer">Messages</span>
-        <span class="row" style="color: white; cursor: pointer">Emails</span>
-    </div>
-    <div class="col-md-offset-1 col-md-1" style="margin-top: 30px">
-        <span class="row" style="color: white; cursor: pointer">Whatsapp</span>
-        <span class="row" style="color: white; cursor: pointer">Messages</span>
-        <span class="row" style="color: white; cursor: pointer">Emails</span>
-    </div>
-</header>
 
 <link href="~/Content/hover.css" rel="stylesheet" />
 
@@ -69,9 +71,23 @@
 
 
 @section Scripts {
+    
     <script>
- $(document).ready(function () {
-     busyViewModel.hide();
- });
+        
+        var OfficeAdminViewModel = function() {
+            var self = this;
+
+            self.goToDevelopers = function () {
+                changeLocation("Information/Tables", true);
+            }
+        }
+
+        ko.applyBindings(new OfficeAdminViewModel(), document.getElementById("OfficeAdmin"));
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            busyViewModel.hide();
+        });
     </script>;
 }

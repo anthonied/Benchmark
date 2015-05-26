@@ -174,6 +174,7 @@
     <Compile Include="Conductors\AccountConductor.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +184,7 @@
     <Compile Include="Models\MenuBase.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\OfficeAdminModel.cs" />
+    <Compile Include="Models\TablesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -194,6 +196,8 @@
     <Content Include="Content\Custom\Benchmark.css" />
     <Content Include="Content\Custom\Buttons.css" />
     <Content Include="Content\Custom\Fonts.css" />
+    <Content Include="Content\Custom\magic.css" />
+    <Content Include="Content\Custom\magic.min.css" />
     <Content Include="Content\Custom\Navbar.css" />
     <Content Include="Content\Custom\ProgressMeterButtons.css" />
     <Content Include="Content\font-awesome.css" />
@@ -353,6 +357,7 @@
     <Content Include="Views\Shared\_busyIndicator.cshtml" />
     <Content Include="Views\Home\OfficeAdmin.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Information\Tables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Benchmark.DatabaseScripts\Benchmark.DatabaseScripts.csproj">

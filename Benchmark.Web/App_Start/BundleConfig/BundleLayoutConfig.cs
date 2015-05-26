@@ -33,7 +33,8 @@ namespace Benchmark.Web
                 "~/Content/Custom/Buttons.css",
                 "~/Content/Custom/Fonts.css",
                 "~/Content/Custom/Benchmark.css",
-                "~/Content/Custom/animate.css");
+                "~/Content/Custom/animate.css",
+                "~/Content/Custom/magic.css");
 
             AddScriptBundle(JsJQuery,
                 "~/Scripts/jquery-{version}.js",
