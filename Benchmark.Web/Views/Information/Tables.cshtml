@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model Benchmark.Web.Models.TablesModel
 
 
 T<div class="container-fluid" id="Table">
@@ -7,9 +7,9 @@ T<div class="container-fluid" id="Table">
      </aside> 
     
      <section class="col-md-4">
-         <div class="col-md-12" align="center">
-             <h2>
-                 Developers
+         <div class="col-md-12" align="left">
+             <h2 data-bind="click:$root.gotToWiki" style="cursor: pointer" data-toggle="tooltip" title="See Implementation On RobinWiki">
+                 Removing An Entry From A Table
              </h2>
              <table class="table table-hover" style="margin-top: 20px">
                  <thead>
@@ -20,7 +20,7 @@ T<div class="container-fluid" id="Table">
                      </tr>
                  </thead>
                  <tbody data-bind="foreach:Developers">
-                     <tr data-bind="attr:{id:id}, click:$parent.gotToWiki" style="cursor: pointer">
+                     <tr data-bind="attr:{id:id}" style="cursor: pointer">
                          <td data-bind="text:name"></td>
                          <td data-bind="text:surname"></td>
                          <td><button class="btn btn-danger" data-bind="click:$parent.remove">Remove</button></td>
@@ -31,6 +31,7 @@ T<div class="container-fluid" id="Table">
      </section>
     
      <aside class="col-md-3">
+         <span></span>
      </aside>
 
  </div>
@@ -44,86 +45,86 @@ T<div class="container-fluid" id="Table">
         var model = {
 
             Developers: [
-            {
-                id : 1,
-                name: "Brendin",
-                surname: "du Plessis"
-            },
-            {
-                id:2,
-                name: "Anthonie",
-                surname: "de Klerk"
-            },
-            {
-                id: 3,
-                name: "Phillip",
-                surname: "Kemp"
-            },
-            {
-                id: 4,
-                name: "Enrico",
-                surname: "Els"
-            },
-            {
-                id: 5,
-                name: "Buks",
-                surname: "Venter"
-            },
-            {
-                id: 6,
-                name: "Tanya",
-                surname: "Something"
-            },
-            {
-                id: 7,
-                name: "Abrie",
-                surname: "Olivier"
-            },
-            {
-                id: 8,
-                name: "Jaco-jan",
-                surname: "Prinsloo"
-            },
-            {
-                id: 9,
-                name: "Drilene",
-                surname: "Nagel"
-            },
-            {
-                id: 10,
-                name: "Janhendrik",
-                surname: "Williams"
-            },
-            {
-                id: 11,
-                name: "Gerhard",
-                surname: "Hattingh"
-            },
-            {
-                id: 12,
-                name: "Nel",
-                surname: "Ranoko"
-            },
-            {
-                id: 13,
-                name: "Hanke",
-                surname: "Kruger"
-            },
-            {
-                id: 14,
-                name: "Louyisa",
-                surname: "Hattingh"
-            },
-            {
-                id: 15,
-                name: "John",
-                surname: "Doe"
-            },
-            {
-                id: 16,
-                name: "Jane",
-                surname: "Doe"
-            },
+                {
+                    id : 1,
+                    name: "Brendin",
+                    surname: "du Plessis"
+                },
+                {
+                    id:2,
+                    name: "Anthonie",
+                    surname: "de Klerk"
+                },
+                {
+                    id: 3,
+                    name: "Phillip",
+                    surname: "Kemp"
+                },
+                {
+                    id: 4,
+                    name: "Enrico",
+                    surname: "Els"
+                },
+                {
+                    id: 5,
+                    name: "Buks",
+                    surname: "Venter"
+                },
+                {
+                    id: 6,
+                    name: "Tanya",
+                    surname: "Something"
+                },
+                {
+                    id: 7,
+                    name: "Abrie",
+                    surname: "Olivier"
+                },
+                {
+                    id: 8,
+                    name: "Jaco-jan",
+                    surname: "Prinsloo"
+                },
+                {
+                    id: 9,
+                    name: "Drilene",
+                    surname: "Nagel"
+                },
+                {
+                    id: 10,
+                    name: "Janhendrik",
+                    surname: "Williams"
+                },
+                {
+                    id: 11,
+                    name: "Gerhard",
+                    surname: "Hattingh"
+                },
+                {
+                    id: 12,
+                    name: "Nel",
+                    surname: "Ranoko"
+                },
+                {
+                    id: 13,
+                    name: "Hanke",
+                    surname: "Kruger"
+                },
+                {
+                    id: 14,
+                    name: "Louyisa",
+                    surname: "Hattingh"
+                },
+                {
+                    id: 15,
+                    name: "John",
+                    surname: "Doe"
+                },
+                {
+                    id: 16,
+                    name: "Jane",
+                    surname: "Doe"
+                },
 
             ]
         }
@@ -136,6 +137,7 @@ T<div class="container-fluid" id="Table">
             self.remove = function(developer) {
                 var selector = '#' + developer.id;
                 $(selector).addClass("magictime spaceOutRight");
+                console.log("iets gebeur")
 
                 setTimeout(function () {
                     self.Developers.remove(developer);
@@ -143,7 +145,7 @@ T<div class="container-fluid" id="Table">
             }
 
             self.gotToWiki = function() {
-                window.open('http://solutionservertiki.com/index.php?title=Main_Page');
+                window.open('http://solutionservertiki.com/index.php?title=Removing_Entry_from_table');
             }
         }
 
@@ -152,6 +154,13 @@ T<div class="container-fluid" id="Table">
     </script>
 
     <script>
+        
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'right'
+            });
+        });
+
         $(document).ready(function () {
             busyViewModel.hide();
         });
