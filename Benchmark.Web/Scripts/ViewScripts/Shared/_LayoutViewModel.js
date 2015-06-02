@@ -14,6 +14,10 @@
         return data();
     });
     self.isLoggedIn = ko.observable(model.Menu.UserLoggedIn);
+
+    self.goHome = function() {
+        changeLocation("Home/OfficeAdmin", true);
+    }
 };
 
 var NavigationItemViewModel = function (navigationItem) {

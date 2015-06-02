@@ -53,7 +53,9 @@ namespace Benchmark.Web
                 "~/Scripts/Custom/Custom.js",
                 "~/Scripts/Custom/BootstrapRadioButtonGroupBinding.js",
                 "~/Scripts/Custom/ProgressMeterButtons.js",
-                "~/Scripts/Custom/Navbar.js");
+                "~/Scripts/Custom/Navbar.js",
+                "~/Scripts/Custom/classie.js",
+                "~/Scripts/Custom/modernizer.custom.js");
 
             AddScriptBundle(JsSharedLayout,
                 "~/Scripts/ViewScripts/Shared/_LayoutViewModel.js");

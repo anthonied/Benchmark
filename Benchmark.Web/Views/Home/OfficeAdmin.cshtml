@@ -10,8 +10,7 @@
 
     <div class="col-md-12" style="margin-top: 50px">
 
-        <aside class="col-md-2">
-        </aside>
+        <aside class="col-md-2"></aside>
 
         <section class="col-md-9" style="margin-top: 20px">
             <div class="col-md-3 hvr-float-shadow dashboardItem" data-bind="click:goToDevelopers">
@@ -21,16 +20,16 @@
                 </div>
             </div>
 
-            <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
+            <div class="col-md-3 hvr-float-shadow dashboardItem" style="margin-left: 10px" data-bind="click:goToProjectProfiles">
                 <div>
-                    <h2 data-value="98">43</h2>
-                    <h4>Emails</h4>
+                    <h2 data-value="98">1</h2>
+                    <h4>Project Profiles</h4>
                 </div>
             </div>
 
             <div class="col-md-3 hvr-float-shadow  dashboardItem" style="margin-left: 10px">
                 <div>
-                    <h2 data-value="98">28</h2>
+                    <h2 data-value="98"></h2>
                     <h4>Messages</h4>
                 </div>
             </div>
@@ -54,7 +53,6 @@
 <link href="~/Content/hover.css" rel="stylesheet" />
 
 <style>
-
     .dashboardItem {
         background-color: #262261;
         width: 300px;
@@ -67,20 +65,22 @@
         .dashboardItem:hover {
             background-color: #1d1d51;
         }
-
-     
 </style>
 
 
 @section Scripts {
-    
+
     <script>
-        
-        var OfficeAdminViewModel = function() {
+
+        var OfficeAdminViewModel = function () {
             var self = this;
 
             self.goToDevelopers = function () {
                 changeLocation("Information/Tables", true);
+            }
+
+            self.goToProjectProfiles = function () {
+                changeLocation("Information/Profiles", true);
             }
         }
 

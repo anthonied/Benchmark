@@ -1,0 +1,66 @@
+﻿@model Benchmark.Web.Models.ProfileModel
+
+@{
+    ViewBag.Title = "title";
+}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="~/Content/Custom/component.css" rel="stylesheet" />
+
+
+<div id="Profiles">
+    <div class="col-md-12">
+        <h3 align="center">Project Profiles</h3>
+    </div>
+    <hr class="horizontal-rule" />
+
+    <div class="cbp-spmenu-push" id="leftMenu">
+
+
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+            <h3>Agrisol</h3>
+            <a href="#">Buttons</a>
+            <a href="#">Typography</a>
+            <a href="#">Icons</a>
+            <a href="#">Transitions</a>
+            <a href="#">Animations</a>
+            <a href="#">Modals</a>
+        </nav>
+
+
+        <script src="~/Scripts/Custom/classie.js"></script>
+        <script>
+            var menuLeft = document.getElementById('cbp-spmenu-s1'),
+                body = document.body;
+
+            $('#cbp-spmenu-s1').show();
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+        </script>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+
+    <script>
+
+        var model = @(Html.Raw(Json.Encode(Model)))
+
+         ProfileViewModel = function () {
+             var self = this;
+         }
+
+        ko.applyBindings(new ProfileViewModel(), document.getElementById("Profiles"));
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            busyViewModel.hide();
+        });
+    </script>;
+
+
+
+}

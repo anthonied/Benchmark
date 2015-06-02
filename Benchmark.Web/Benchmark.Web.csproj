@@ -184,6 +184,7 @@
     <Compile Include="Models\MenuBase.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\OfficeAdminModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\TablesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -195,6 +196,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom\Benchmark.css" />
     <Content Include="Content\Custom\Buttons.css" />
+    <Content Include="Content\Custom\component.css" />
+    <Content Include="Content\Custom\default.css" />
     <Content Include="Content\Custom\Fonts.css" />
     <Content Include="Content\Custom\magic.css" />
     <Content Include="Content\Custom\magic.min.css" />
@@ -299,6 +302,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Custom\animate.css" />
     <Content Include="Scripts\Custom\BootstrapRadioButtonGroupBinding.js" />
+    <Content Include="Scripts\Custom\classie.js" />
     <Content Include="Scripts\Custom\Custom.js" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
@@ -313,6 +317,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="fonts\IsiniScript.ttf" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\Custom\modernizr.custom.js" />
     <Content Include="Scripts\Custom\Navbar.js" />
     <Content Include="Scripts\Custom\ProgressMeterButtons.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -358,6 +363,7 @@
     <Content Include="Views\Home\OfficeAdmin.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Information\Tables.cshtml" />
+    <Content Include="Views\Information\Profiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Benchmark.DatabaseScripts\Benchmark.DatabaseScripts.csproj">

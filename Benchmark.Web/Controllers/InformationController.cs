@@ -10,5 +10,12 @@ namespace Benchmark.Web.Controllers
             var model = new TablesModel();
             return View(model);
         }
+
+        public ActionResult Profiles()
+        {
+            var model = new ProfileModel();
+
+            return View(model);
+        }
     }
 }
